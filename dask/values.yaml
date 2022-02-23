@@ -186,8 +186,8 @@ jupyter:
     # c.NotebookApp.port = 8888
     #c.NotebookApp.password = u''
     c.NotebookApp.password_required = False
-    #c.NotebookApp.token = ''
-    #c.NotebookApp.password = ''
+    c.NotebookApp.token = ''
+    c.NotebookApp.password = ''
   resources: {} # Jupyter pod resources. See `values.yaml` for example values.
   #  limits:
   #    cpu: 2
