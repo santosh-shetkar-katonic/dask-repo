@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: dask-dashboard-vs
+  namespace: dask
+spec:
+  gateways:
+  - kubeflow/kubeflow-gateway
+  hosts:
+    - "test.katonic.ai"
+  http:
+  - match:
+    - uri:
+        prefix: "/{{ .Values.scheduler.dashboardPrefix }}/"
+    rewrite:
+      uri: "/{{ .Values.scheduler.dashboardPrefix }}/"
+    route:
+    - destination:
+        host: mydask-scheduler
+        port:
+          number: 80
